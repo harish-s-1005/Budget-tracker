@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Expense Tracker SPA</title>
+<link rel="stylesheet" href="style.css" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<!--
+<div id="login-screen" class="screen glass">
+  <h2>Enter Password</h2>
+  <input type="password" id="login-password" placeholder="Password" />
+  <button id="login-btn">Login</button>
+  <p id="login-error" class="error"></p>
+</div>
+-->
+<div id="app" class="hidden">
+  <nav class="glass">
+    <button class="nav-btn" data-section="home">Home</button>
+    <button class="nav-btn" data-section="dashboard">Dashboard</button>
+    <button class="nav-btn" data-section="statement">Statement</button>
+    <button id="logout-btn" class="logout-btn">Logout</button>
+  </nav>
+
+  <main>
+    <!-- Home Section -->
+    <section id="home" class="section glass active">
+      <h2>Add Income/Expense</h2>
+      <form id="entry-form">
+        <label>Type:
+          <select id="type" required>
+            <option value="income">Income</option>
+            <option value="expense">Expense</option>
+          </select>
+        </label>
+        <label>Amount:
+          <input type="number" id="amount" step="0.01" min="0.01" required />
+        </label>
+        <label>Category:
+          <input list="category-list" id="category" placeholder="Category" required />
+          <datalist id="category-list">
+            <option value="Salary"></option>
+            <option value="Groceries"></option>
+            <option value="Rent"></option>
+            <option value="Utilities"></option>
+            <option value="Entertainment"></option>
+            <option value="Others"></option>
+          </datalist>
+        </label>
+        <label>Date:
+          <input type="date" id="date" required />
+        </label>
+        <button type="submit">Add Entry</button>
+      </form>
+
+      <div id="monthly-summary"></div>
+
+      <h3>Entries</h3>
+      <table id="entries-table">
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Amount</th>
+            <th>Category</th>
+            <th>Date</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="section glass">
+
+      <h2>Dashboard</h2>
+      <div class="filters">
+        <label>Year:
+          <select id="dashboard-year"></select>
+        </label>
+        <label>Month:
+          <select id="dashboard-month">
+            <option value="all">All</option>
+            <option value="0">January</option>
+            <option value="1">February</option>
+            <option value="2">March</option>
+            <option value="3">April</option>
+            <option value="4">May</option>
+            <option value="5">June</option>
+            <option value="6">July</option>
+            <option value="7">August</option>
+            <option value="8">September</option>
+            <option value="9">October</option>
+            <option value="10">November</option>
+            <option value="11">December</option>
+          </select>
+        </label>
+        <label>Category:
+          <input list="category-list-dashboard" id="dashboard-category" placeholder="Category (optional)" />
+          <datalist id="category-list-dashboard">
+            <option value="Salary"></option>
+            <option value="Groceries"></option>
+            <option value="Rent"></option>
+            <option value="Utilities"></option>
+            <option value="Entertainment"></option>
+            <option value="Others"></option>
+          </datalist>
+        </label>
+        <button id="dashboard-refresh">Refresh</button>
+      </div>
+      
+      <canvas id="category-chart" style="max-width:600px;"></canvas>
+      <canvas id="income-expense-chart" style="max-width:600px; margin-top:20px;"></canvas>
+    </section>
+
+    <!-- Statement Section -->
+    <section id="statement" class="section glass">
+      <h2>Statement & Export</h2>
+      <div class="filters">
+        <label>Year:
+          <select id="statement-year"></select>
+        </label>
+        <label>Month:
+          <select id="statement-month">
+            <option value="all">All</option>
+            <option value="0">January</option>
+            <option value="1">February</option>
+            <option value="2">March</option>
+            <option value="3">April</option>
+            <option value="4">May</option>
+            <option value="5">June</option>
+            <option value="6">July</option>
+            <option value="7">August</option>
+            <option value="8">September</option>
+            <option value="9">October</option>
+            <option value="10">November</option>
+            <option value="11">December</option>
+          </select>
+        </label>
+        <label>Category:
+          <input list="category-list-statement" id="statement-category" placeholder="Category (optional)" />
+          <datalist id="category-list-statement">
+            <option value="Salary"></option>
+            <option value="Groceries"></option>
+            <option value="Rent"></option>
+            <option value="Utilities"></option>
+            <option value="Entertainment"></option>
+            <option value="Others"></option>
+          </datalist>
+        </label>
+        <button id="statement-refresh">Show Statement</button>
+        <button id="export-excel">Export Excel</button>
+        <button id="export-csv">Export CSV</button>
+      </div>
+      <table id="statement-table">
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Amount</th>
+            <th>Category</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </main>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

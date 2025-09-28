@@ -1,0 +1,222 @@
+/* Reset & base */
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  height: 100vh;
+  color: white;
+}
+
+#login-screen{
+  align-items: center;
+  justify-items: center;
+  display: flex;
+  flex-direction: column;
+}
+#wrap{
+ display: flex;
+ justify-content: space-around;
+}
+#login-screen #login-btn{
+  border-color: white;
+  color: #000000;
+  background-color: #8bf33cec;
+  border-radius: 0px 15px 15px 0px;
+}
+#login-screen #login-password{
+  border-radius: 15px 0px 0px 15px;
+  border-color: white;
+}
+#login-btn:hover{
+  border-color: white;
+  color: #000000;
+  background-color: #8bf33cec;
+  border-radius: 0px 15px 15px 0px;
+  transform: scale(105%);
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  padding: 20px;
+  margin: 20px;
+}
+
+nav.glass {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  font-weight: bold;
+}
+
+nav button {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: background-color 0.3s ease;
+}
+
+nav button:hover, nav button.active {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.logout-btn {
+  margin-left: auto;
+  background: #ff4d4d !important;
+}
+
+main {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 0 10px;
+}
+
+.section {
+  display: none;
+}
+
+.section.active {
+  display: block;
+}
+
+form label {
+  display: block;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+form input, form select, form button {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  margin-top: 4px;
+}
+
+form button {
+  margin-top: 20px;
+  background: #667eea;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background: #5566cc;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  color: white;
+}
+
+table th, table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: left;
+}
+
+button.action-btn {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: background-color 0.3s ease;
+}
+
+button.delete-btn {
+  background: #ff4d4d;
+  color: white;
+}
+
+button.delete-btn:hover {
+  background: #cc0000;
+}
+
+.error {
+  color: #000000;
+  margin-top: 10px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+#monthly-summary {
+  margin-top: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 15px;
+  border-radius: 12px;
+  font-weight: 700;
+}
+
+.filters label {
+  display: inline-block;
+  margin-right: 15px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.filters input, .filters select {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  margin-left: 6px;
+  min-width: 130px;
+}
+
+.filters button {
+  background: #667eea;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.filters button:hover {
+  background: #5566cc;
+}
+
+@media (max-width: 600px) {
+  nav.glass {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .filters label {
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  .filters input, .filters select {
+    min-width: 100%;
+  }
+}   
+

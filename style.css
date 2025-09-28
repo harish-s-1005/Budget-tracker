@@ -12,6 +12,28 @@ body, html {
   color: white;
 }
 
+#login-screen{
+  align-items: center;
+  justify-items: center;
+  display: flex;
+  flex-direction: column;
+}
+#wrap{
+ display: flex;
+ justify-content: space-around;
+}
+#login-screen #login-btn{
+  border-color: white;
+  color: #000000;
+  background-color: #8bf33cec;
+  border-radius: 0px 15px 15px 0px;
+}
+#login-screen #login-password{
+  border-radius: 15px 0px 0px 15px;
+  border-color: white;
+}
+
+
 .glass {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 15px;
@@ -127,7 +149,7 @@ button.delete-btn:hover {
 }
 
 .error {
-  color: #ff6666;
+  color: #000000;
   margin-top: 10px;
 }
 

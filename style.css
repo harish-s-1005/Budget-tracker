@@ -32,7 +32,13 @@ body, html {
   border-radius: 15px 0px 0px 15px;
   border-color: white;
 }
-
+#login-btn:hover{
+  border-color: white;
+  color: #000000;
+  background-color: #8bf33cec;
+  border-radius: 0px 15px 15px 0px;
+  transform: scale(105%);
+}
 
 .glass {
   background: rgba(255, 255, 255, 0.1);
